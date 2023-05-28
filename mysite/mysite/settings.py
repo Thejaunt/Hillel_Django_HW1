@@ -6,7 +6,7 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 load_dotenv()
-SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY = os.getenv('SECRET_KEY', default="django-insecure-cm#ygn4$=^$01tcxp@_%yrx2_^96r8k_9=papj96yw*sf54gxq")
 
 DEBUG = True
 
@@ -54,8 +54,8 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': os.getenv('ENGINE'),
-        'NAME': BASE_DIR / os.getenv('NAME'),
+        'ENGINE': os.getenv('ENGINE', default='django.db.backends.sqlite3'),
+        'NAME': BASE_DIR / os.getenv('NAME', default='db.sqlite3'),
     }
 }
 
